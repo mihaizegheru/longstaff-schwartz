@@ -1,0 +1,6 @@
+# Shared model definitions and input/output utilities will live here.
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)

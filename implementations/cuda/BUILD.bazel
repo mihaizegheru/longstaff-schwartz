@@ -1,0 +1,7 @@
+# Future executable: //implementations/cuda:cuda
+# Use rules_cuda's cuda_library for .cu sources and mark GPU targets manual.
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h", "*.cu", "*.cuh"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)

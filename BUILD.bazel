@@ -1,0 +1,14 @@
+package(default_visibility = ["//visibility:public"])
+
+# Source inventory only. Executables will be added with implementations.
+filegroup(
+    name = "all_sources",
+    srcs = [
+        "//common:sources",
+        "//implementations/serial:sources",
+        "//implementations/pthreads:sources",
+        "//implementations/openmp:sources",
+        "//implementations/cuda:sources",
+        "//implementations/mpi:sources",
+    ],
+)

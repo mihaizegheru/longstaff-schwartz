@@ -1,0 +1,6 @@
+# Copy this file to .bazelrc.local and edit paths for your machine.
+# Local configuration is ignored by Git.
+
+# build --repo_env=CUDA_PATH=/usr/local/cuda
+# build:cuda --@rules_cuda//cuda:archs=compute_80:compute_80,sm_80
+# build --jobs=8

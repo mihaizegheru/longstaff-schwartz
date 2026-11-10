@@ -1,0 +1,7 @@
+# Future executable: //implementations/mpi:mpi
+# Use the team's selected MPI distribution and mark MPI targets manual.
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)

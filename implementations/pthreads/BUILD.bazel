@@ -1,0 +1,7 @@
+# Future executable: //implementations/pthreads:pthreads
+# Keep -pthread compile/link options local to this backend.
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)

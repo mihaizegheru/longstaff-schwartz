@@ -1,0 +1,11 @@
+module(name = "longstaff_schwartz", version = "0.1.0")
+
+bazel_dep(name = "rules_cc", version = "0.2.14")
+bazel_dep(name = "rules_cuda", version = "0.3.0")
+
+cuda = use_extension("@rules_cuda//cuda:extensions.bzl", "toolchain")
+cuda.toolkit(name = "cuda")
+use_repo(cuda, "cuda")
+
+# MPI integration will be added with the first MPI implementation, using the
+# team's chosen distribution. No system-specific paths are committed.

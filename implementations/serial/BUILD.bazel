@@ -1,0 +1,6 @@
+# Future executable: //implementations/serial:serial
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scaffold:
+    name: Validate scaffold
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bazel-contrib/setup-bazel@0.19.2
+        with:
+          bazelisk-cache: true
+          repository-cache: true
+      - name: Validate Bazel packages
+        run: bazel build //...
+      - name: Validate profiling configuration
+        run: bazel build --config=profile //...

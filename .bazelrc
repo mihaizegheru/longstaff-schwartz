@@ -1,0 +1,23 @@
+common --enable_bzlmod
+build --cxxopt=-std=c++17
+build --copt=-Wall
+build --copt=-Wextra
+build --copt=-Wpedantic
+build --@rules_cuda//cuda:enable=false
+test --test_output=errors
+
+build:release --compilation_mode=opt
+build:debug --compilation_mode=dbg
+build:profile --config=release
+build:profile --copt=-g
+build:profile --copt=-fno-omit-frame-pointer
+build:profile --strip=never
+
+build:cuda --@rules_cuda//cuda:enable=true
+build:cuda --@rules_cuda//cuda:copts=-std=c++17
+build:cuda-profile --config=profile
+build:cuda-profile --config=cuda
+build:cuda-profile --@rules_cuda//cuda:copts=-lineinfo
+
+# Machine-specific paths, GPU architectures, and local compiler settings.
+try-import %workspace%/.bazelrc.local

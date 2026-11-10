@@ -1,0 +1,7 @@
+# Future executable: //implementations/openmp:openmp
+# Keep -fopenmp compile/link options local to this backend.
+filegroup(
+    name = "sources",
+    srcs = glob(["*.cc", "*.h"], allow_empty = True),
+    visibility = ["//visibility:public"],
+)
